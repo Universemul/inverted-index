@@ -1,2 +1,2 @@
 # inverted-index
-Python package providing an Inverted Index
+Python package providing an in-memory Inverted Index
