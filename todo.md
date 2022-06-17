@@ -2,11 +2,12 @@
 
 ## Basic
 
-[ ] Index Documents  
-[ ] Find Documents by exact match  
-[ ] Unindex Documents  
+[X] Index Documents  
+[X] Find Documents by exact match  
+[X] Unindex Terms
+[X] Unindex documents
 [ ] Save Inverted Index on disk  
-[ ] Index only string or text files  
+[X] Index only string or text files  
 
 ## Advanced Features
 

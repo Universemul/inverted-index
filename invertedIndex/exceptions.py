@@ -1,0 +1,3 @@
+
+class NotExistingTerm(IndexError):
+    pass
