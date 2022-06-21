@@ -8,7 +8,6 @@ from invertedIndex.configuration import JsonConfig
 class JsonConfigurationTest(unittest.TestCase):
 
     def setUp(self):
-        # use temporary file
         self.json_index = InvertedIndex(config=JsonConfig(output_file="test.data"))
         self.inmemory_index = InvertedIndex()
         self.data = [
