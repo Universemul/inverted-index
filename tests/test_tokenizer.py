@@ -1,6 +1,6 @@
 import unittest
 
-from invertedIndex.tokenizer import Tokenizer
+from invertedIndex.tokenize import Tokenizer
 
 
 class TokenizerTest(unittest.TestCase):

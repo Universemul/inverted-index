@@ -2,7 +2,7 @@ import unittest
 
 import pytest
 
-from invertedIndex import InvertedIndex
+from invertedIndex.core import InvertedIndex
 from invertedIndex.exceptions import NotExistingTerm
 
 

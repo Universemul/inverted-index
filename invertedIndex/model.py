@@ -1,4 +1,7 @@
+import json
 from typing import List
+
+from invertedIndex.encoder import DefaultEncoder
 
 
 class Item:
@@ -25,3 +28,15 @@ class Item:
 
     def __eq__(self, other):
         return self.frequency == other.frequency and self.documents == other.documents
+
+    def __iter__(self):
+        yield from {
+            "frequency": self.frequency,
+            "documents": self.documents
+        }.items()
+
+    def __str__(self):
+        return json.dumps(dict(self), cls=DefaultEncoder, ensure_ascii=False)
+
+    def to_json(self):
+        return self.__str__()
