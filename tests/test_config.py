@@ -8,7 +8,10 @@ from invertedIndex.configuration import JsonConfig
 class JsonConfigurationTest(unittest.TestCase):
 
     def setUp(self):
-        self.json_index = InvertedIndex(config=JsonConfig(output_file="test.data"))
+        self.filename = "test2.data"
+        fo = open(self.filename, 'w')
+        fo.close()
+        self.json_index = InvertedIndex(config=JsonConfig(output_file=self.filename))
         self.inmemory_index = InvertedIndex()
         self.data = [
             ('toto', 'document1.txt'),
@@ -19,18 +22,17 @@ class JsonConfigurationTest(unittest.TestCase):
             ('word', 'document3.txt')
         ]
 
+    def tearDown(self) -> None:
+        os.remove(self.filename)
+
     def test_json_config(self):
         for item in self.data:
             self.json_index.add(item[0], item[1])
-        assert os.path.exists("test.data") is True
-        index = InvertedIndex(config=JsonConfig(output_file="test.data"))
+        index = InvertedIndex(config=JsonConfig(output_file=self.filename))
         assert len(index.terms()) == 4
-        os.remove("test.data")
 
     def test_add_element_after_loading_existing_documents_json_config(self):
         for item in self.data:
             self.json_index.add(item[0], item[1])
-        assert os.path.exists("test.data") is True
         self.json_index.add("haha", "document1.txt")
         assert len(self.json_index.terms()) == 5
-        os.remove("test.data")

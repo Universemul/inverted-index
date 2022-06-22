@@ -27,3 +27,4 @@
 [ ] Language stemming  
 [ ] Stopwords by language  
 [ ] nGrams  
+[ ] Add Metrics

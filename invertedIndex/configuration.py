@@ -30,12 +30,16 @@ class JsonConfig(Config):
         self._output_file = output_file
 
     def save(self, documents: Terms):
+        print(documents)
         with open(self._output_file, 'w') as _f:
             _f.write(json.dumps(documents, cls=DefaultEncoder))
 
     def load(self) -> Terms:
         if os.path.exists(self._output_file):
             with open(self._output_file, 'r') as _f:
-                return json.loads(_f.read())
+                try:
+                    return json.loads(_f.read())
+                except json.JSONDecodeError as e:
+                    return Terms()
         return Terms()
 
