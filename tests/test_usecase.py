@@ -1,8 +1,8 @@
 import unittest
 
 
-from invertedIndex import InvertedIndex
-from invertedIndex.tokenizer import Tokenizer
+from invertedIndex.core import InvertedIndex
+from invertedIndex.tokenize import Tokenizer
 
 
 class UseCaseTest(unittest.TestCase):

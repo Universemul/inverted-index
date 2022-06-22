@@ -6,8 +6,9 @@
 [X] Find Documents by exact match  
 [X] Unindex Terms
 [X] Unindex documents
-[ ] Save Inverted Index on disk  
+[X] Save Inverted Index on disk  
 [X] Index only string or text files  
+[ ] Find a new to override the serialization method
 
 ## Advanced Features
 
@@ -27,3 +28,4 @@
 [ ] Language stemming  
 [ ] Stopwords by language  
 [ ] nGrams  
+[ ] Add Metrics
