@@ -3,20 +3,28 @@ default_language_version:
 repos:
   - repo: local
     hooks:
-      - id: black
-        name: black
-        language: system
-        entry: black
-        types: [python]
       - id: isort
         name: isort
         language: system
         entry: isort
-        args: ["--check", "--diff"]
-        types: [python]
+        types: [ python ]
+      - id: black
+        name: black
+        language: system
+        types_or: [ python, pyi ]
+        entry: black
+      - id: autoflake
+        name: autoflake
+        language: system
+        types_or: [ python, pyi ]
+        entry: >
+          autoflake --in-place
+          --remove-all-unused-imports
+          --remove-duplicate-keys
+          --remove-unused-variables
+          --ignore-init-module-imports
       - id: flake8
         name: flake8
         language: system
-        entry: flake8
-        types: [python]
-        exclude: "migrations"
+        entry: flake8-cached . --config .flake8
+        types_or: [ python ]

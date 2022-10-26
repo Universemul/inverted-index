@@ -1,1 +1,7 @@
 pytest
+isort
+black
+mypy
+flake8
+autoflake
+flake8-cached
