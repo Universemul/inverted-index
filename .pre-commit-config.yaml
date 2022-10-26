@@ -28,3 +28,8 @@ repos:
         language: system
         entry: flake8-cached . --config .flake8
         types_or: [ python ]
+      - id: mypy
+        name: mypy
+        language: system
+        entry: mypy
+        types_or: [ python ]

@@ -1,5 +1,5 @@
 import string
-from typing import Iterator
+from typing import Callable, Iterator
 
 
 class Tokenizer:
@@ -8,6 +8,7 @@ class Tokenizer:
 
     def analyze(self, term: str) -> Iterator[str]:
         tokens = self.split(term)
+        apply_func: Callable[[Iterator[str]], Iterator[str]]
         for apply_func in (self.remove_punctation, self.text_only, self.lowercase):
             tokens = apply_func(tokens)
         yield from tokens
