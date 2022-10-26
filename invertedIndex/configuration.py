@@ -30,7 +30,6 @@ class JsonConfig(Config):
         self._output_file = output_file
 
     def save(self, documents: Terms):
-        print(documents)
         with open(self._output_file, 'w') as _f:
             _f.write(json.dumps(documents, cls=DefaultEncoder))
 
