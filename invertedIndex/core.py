@@ -4,7 +4,7 @@ from . import Terms
 from .configuration import Config, InMemoryConfig
 from .exceptions import NotExistingTerm
 from .model import Item
-from .tokenize import Tokenizer
+from .tokenizer import Tokenizer
 
 
 class InvertedIndex:
@@ -25,9 +25,6 @@ class InvertedIndex:
 
     def __getitem__(self, term: str):
         return self._terms.get(term)
-
-    def tokenize(self, term: str) -> typing.Iterator[str]:
-        return self._tokenizer.split(term)
 
     def add(self, term: str, document: str):
         if term in self._terms:
