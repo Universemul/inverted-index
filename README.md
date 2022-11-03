@@ -16,6 +16,7 @@ Python package providing an in-memory Inverted Index
 - [ ] Tokenizer
     - [X] French
     - [ ] Other language
+    - Letter tokenizer (remove number)
 - [ ] Stemming
     - [ ] French
     - [ ] Other language

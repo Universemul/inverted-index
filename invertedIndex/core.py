@@ -4,7 +4,7 @@ from . import Terms
 from .configuration import Config, InMemoryConfig
 from .exceptions import NotExistingTerm
 from .model import Item
-from .tokenize.base import Tokenizer
+from .tokenize.english import EnglishTokenizer
 
 
 class InvertedIndex:
@@ -18,7 +18,7 @@ class InvertedIndex:
     def __init__(self, tokenizer=None, config: Config = None):
         self._config = config or InMemoryConfig()
         self._terms = self._config.load()
-        self._tokenizer = tokenizer or Tokenizer(delimiter=" ")
+        self._tokenizer = tokenizer or EnglishTokenizer(delimiter=" ")
 
     def __contains__(self, term: str):
         return term in self._terms
