@@ -15,13 +15,15 @@ Python package providing an in-memory Inverted Index
     - [ ] Using regex
 - [ ] Tokenizer
     - [X] French
-    - [ ] Other language
+    - [X] English
+    - [ ] Other Language
     - Letter tokenizer (remove number)
 - [ ] Stemming
     - [ ] French
     - [ ] Other language
 - [ ] Stopwords
     - [X] French
+    - [X] English
     - [ ] Other language
 - [ ] Better default serialization. Partial json update instead of overriding the whole file
 - [ ] L4Z Configuration
