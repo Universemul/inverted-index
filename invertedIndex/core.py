@@ -4,7 +4,7 @@ from . import Terms
 from .configuration import Config, InMemoryConfig
 from .exceptions import NotExistingTerm
 from .model import Item
-from .tokenizer import Tokenizer
+from .tokenize.base import Tokenizer
 
 
 class InvertedIndex:

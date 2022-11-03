@@ -7,7 +7,7 @@ from invertedIndex.core import InvertedIndex
 
 class JsonConfigurationTest(unittest.TestCase):
     def setUp(self):
-        self.filename = "test2.data"
+        self.filename = "test.data"
         fo = open(self.filename, "w")
         fo.close()
         self.json_index = InvertedIndex(config=JsonConfig(output_file=self.filename))

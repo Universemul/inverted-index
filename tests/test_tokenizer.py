@@ -1,7 +1,7 @@
 # flake8: noqa
 import unittest
 
-from invertedIndex.tokenizer import Tokenizer
+from invertedIndex.tokenize.base import Tokenizer
 
 
 class TokenizerTest(unittest.TestCase):

@@ -13,7 +13,9 @@ class Tokenizer:
         self._stopwords = self._load_stopwords(lang)
 
     def _load_stopwords(self, lang: str) -> Set[str]:
-        _stopword_files = {"fr": _current_dir + "/stopwords/stopwords_fr.txt"}
+        _stopword_files = {
+            "fr": os.path.join(_current_dir, "../stopwords/stopwords_fr.txt")
+        }
         if lang not in _stopword_files:
             raise KeyError(
                 f"{lang} is not valid. Available languages : {','.join(_stopword_files.keys())}"
