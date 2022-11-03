@@ -58,8 +58,7 @@ class TokenizerTest(unittest.TestCase):
     def test_normalize(self):
         tokens = self.tokenizer.tokenize(self.basic_sentence)
         tokens_with_accents = self.tokenizer.tokenize(
-            "C'est l'instant où le malade qui a été obligé de partir en voyage et a dû coucher dans un hôtel inconnu, "
-            "réveillé par une crise, se réjouit en apercevant sous la porte une raie de jour"
+            "C'est l'instant où le malade qui a été obligé de partir en voyage et a dû coucher dans un hôtel inconnu, réveillé par une crise, se réjouit en apercevant sous la porte une raie de jour"
         )
         expected_tokens_with_accents = [
             "C'est",
@@ -127,21 +126,22 @@ class TokenizerTest(unittest.TestCase):
     # region lowercase
     def test_lowercase(self):
         tokens = self.tokenizer.tokenize(self.basic_sentence)
-        tokens_randomize = self.tokenizer.tokenize("hi WHaT iS THE WEAtHeR LikE")
+        tokens_randomize = self.tokenizer.tokenize(
+            "HelLo QueL tEmpS fait-IL aujoUrd'HUI"
+        )
         assert list(self.tokenizer.lowercase(tokens)) == ["bonjour", "le", "monde"]
         assert list(self.tokenizer.lowercase(tokens_randomize)) == [
-            "hi",
-            "what",
-            "is",
-            "the",
-            "weather",
-            "like",
+            "hello",
+            "quel",
+            "temps",
+            "fait-il",
+            "aujourd'hui",
         ]
 
     # endregion
 
     # region stopwords
-    def test_french_stopwords(self):
+    def test_stopwords(self):
         tokens_without_stopwords = self.tokenizer.tokenize("Bonjour")
         tokens_with_stopwords = self.tokenizer.tokenize(
             "C'est l'instant où le malade qui a été obligé de partir en voyage et a dû coucher dans un hôtel inconnu, "
@@ -175,7 +175,7 @@ class TokenizerTest(unittest.TestCase):
     # endregion
 
     # region analyze
-    def test_french_analyze(self):
+    def test_analyze(self):
         sentence = "Bonjour tout le moNde."
         big_sentence = """C'est l'instant où le malade qui a été obligé de partir en voyage et a dû coucher dans un hôtel inconnu, 
             réveillé par une crise, se réjouit en apercevant sous la porte une raie de jour
