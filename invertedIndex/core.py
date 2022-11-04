@@ -1,10 +1,10 @@
 import typing
 
 from . import Terms
+from .configuration import Config, InMemoryConfig
 from .exceptions import NotExistingTerm
-from .configuration import InMemoryConfig, Config
 from .model import Item
-from .tokenize import Tokenizer
+from .tokenize.english import EnglishTokenizer
 
 
 class InvertedIndex:
@@ -12,22 +12,19 @@ class InvertedIndex:
     InvertedIndex structure using
     """
 
-    DOCUMENT_DOES_NOT_EXIST = 'The specified document does not exist'
-    TERM_DOES_NOT_EXIST = 'The specified term does not exist'
+    DOCUMENT_DOES_NOT_EXIST = "The specified document does not exist"
+    TERM_DOES_NOT_EXIST = "The specified term does not exist"
 
     def __init__(self, tokenizer=None, config: Config = None):
         self._config = config or InMemoryConfig()
         self._terms = self._config.load()
-        self._tokenizer = tokenizer or Tokenizer(delimiter=' ')
+        self._tokenizer = tokenizer or EnglishTokenizer(delimiter=" ")
 
     def __contains__(self, term: str):
         return term in self._terms
 
     def __getitem__(self, term: str):
         return self._terms.get(term)
-
-    def tokenize(self, term: str) -> typing.Iterator[str]:
-        return self._tokenizer.split(term)
 
     def add(self, term: str, document: str):
         if term in self._terms:
